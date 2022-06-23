@@ -1,4 +1,4 @@
-import { jsx as _jsx } from "@emotion/react/jsx-runtime";
+import React from 'react';
 import { Header } from './Header';
 export default {
     title: 'Example/Header',
@@ -8,7 +8,7 @@ export default {
         layout: 'fullscreen',
     },
 };
-const Template = (args) => _jsx(Header, { ...args });
+const Template = (args) => React.createElement(Header, { ...args });
 export const LoggedIn = Template.bind({});
 LoggedIn.args = {
     user: {

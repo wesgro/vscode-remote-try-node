@@ -1,6 +1,5 @@
-/** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react'
 const titleStyle = css({
   boxSizing: 'border-box',
   width: 300,
@@ -12,21 +11,6 @@ const subtitleStyle = css`
   width: 100px;
   height: 60px;
 `
-
-const Container = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  border-width: 2px;
-  border-radius: 2px;
-  border-style: dashed;
-  background-color: #fafafa;
-  color: #bdbdbd;
-  outline: none;
-  transition: border .24s ease-in-out;
-`;
 import './button.css';
 
 interface ButtonProps {
@@ -73,7 +57,7 @@ export const Button = ({
       {...props}
     >
       {label}
-      <Container css={titleStyle} />
+      
     </button>
   );
 };

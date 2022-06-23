@@ -1,4 +1,4 @@
-import { jsx as _jsx } from "@emotion/react/jsx-runtime";
+import React from 'react';
 import { within, userEvent } from '@storybook/testing-library';
 import { Page } from './Page';
 export default {
@@ -9,7 +9,7 @@ export default {
         layout: 'fullscreen',
     },
 };
-const Template = (args) => _jsx(Page, { ...args });
+const Template = (args) => React.createElement(Page, { ...args });
 export const LoggedOut = Template.bind({});
 export const LoggedIn = Template.bind({});
 // More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
