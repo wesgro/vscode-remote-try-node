@@ -1,14 +1,27 @@
 {
-  "name": "docker_web_app",
-  "version": "1.0.0",
-  "description": "Node.js on Docker",
-  "author": "First Last <first.last@example.com>",
-  "main": "server.js",
-  "private": true,
-  "scripts": {
-    "start": "node server.js"
+  "name": "vscode-remote-try-node",
+  "packageManager": "yarn@3.2.1",
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-docs": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack4": "^6.5.9",
+    "@storybook/manager-webpack4": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^16.2.0",
+    "babel-loader": "^8.2.5",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "tsc": "^2.0.4",
+    "typescript": "^4.7.4"
   },
-  "dependencies": {
-    "express": "^4.16.1"
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   }
 }
