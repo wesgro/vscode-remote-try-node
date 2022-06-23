@@ -1,4 +1,32 @@
-import React from 'react';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
+const titleStyle = css({
+  boxSizing: 'border-box',
+  width: 300,
+  height: 200
+})
+
+const subtitleStyle = css`
+  box-sizing: border-box;
+  width: 100px;
+  height: 60px;
+`
+
+const Container = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-width: 2px;
+  border-radius: 2px;
+  border-style: dashed;
+  background-color: #fafafa;
+  color: #bdbdbd;
+  outline: none;
+  transition: border .24s ease-in-out;
+`;
 import './button.css';
 
 interface ButtonProps {
@@ -35,14 +63,17 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  console.log(titleStyle)
   return (
     <button
+      css={{color:'blue'}}
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
+     
+
       {...props}
     >
       {label}
+      <Container css={titleStyle} />
     </button>
   );
 };
