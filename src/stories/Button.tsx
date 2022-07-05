@@ -1,17 +1,18 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react'
+import { css, jsx } from "@emotion/react";
+import { WithResponsive } from "./with-responsive";
 const titleStyle = css({
-  boxSizing: 'border-box',
+  boxSizing: "border-box",
   width: 300,
-  height: 200
-})
+  height: 200,
+});
 
 const subtitleStyle = css`
   box-sizing: border-box;
   width: 100px;
   height: 60px;
-`
-import './button.css';
+`;
+import "./button.css";
 
 interface ButtonProps {
   /**
@@ -25,7 +26,7 @@ interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large";
   /**
    * Button contents
    */
@@ -41,23 +42,21 @@ interface ButtonProps {
  */
 export const Button = ({
   primary = false,
-  size = 'medium',
+  size = "medium",
   backgroundColor,
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  console.log(titleStyle)
+  console.log("SIZE PROP FROM BUTTON", size);
+  const mode = primary
+    ? "storybook-button--primary"
+    : "storybook-button--secondary";
+  const padding = size === "small" ? "10px" : "30px";
   return (
-    <button
-      css={{color:'blue'}}
-      type="button"
-     
-
-      {...props}
-    >
+    <button css={{ color: "blue", padding: padding }} type="button" {...props}>
       {label}
-      
     </button>
   );
 };
+
+export const ResponsiveButton = WithResponsive(Button, ["primary", "size"]);
