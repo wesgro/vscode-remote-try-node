@@ -49,6 +49,7 @@ export function useBreakpoints() {
     isLg: useMediaQuery("(min-width: 1025px)"),
     active: "xs",
   };
+
   if (breakpoints.isXs) breakpoints.active = "xs";
   if (breakpoints.isSm) breakpoints.active = "sm";
   if (breakpoints.isMd) breakpoints.active = "md";

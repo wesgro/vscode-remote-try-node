@@ -14,8 +14,6 @@ interface Props {
   onClick?: (e: Event) => void;
 }
 
-// {'xs':'small', 'l': 'medium'}
-// typeof employee[Keys]
 type MapToBeakpoints<T> = {
   [K in keyof Breakpoints]?: T;
 };
@@ -30,17 +28,15 @@ export const WithResponsive = <Type, Key extends keyof Type>(
   responsiveProps: Key[]
 ) => {
   function WithResponsiveWrapper(props: ResponsiveProps<Type, Key>) {
-    const { active } = useBreakpoints();
+    const { active, isXs, isSm, isMd, isLg } = useBreakpoints();
 
     const modifiedProps = { ...props };
-    // Process the responsive props to extract responsive values
 
     for (const responsiveProp of responsiveProps) {
-      if (props[responsiveProp]) {
+      if (props[responsiveProp] && typeof props[responsiveProp] === "object") {
         modifiedProps[responsiveProp] = (props[responsiveProp] as any)[active];
       }
     }
-
     return <WrappedComponent {...(modifiedProps as Type)} />;
   }
   WithResponsiveWrapper.displayName = `WithResponsive(${

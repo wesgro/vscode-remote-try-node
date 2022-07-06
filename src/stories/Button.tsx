@@ -1,18 +1,41 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { WithResponsive } from "./with-responsive";
-const titleStyle = css({
-  boxSizing: "border-box",
-  width: 300,
-  height: 200,
+const buttonStyles = css({
+  fontFamily: "'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+  fontWeight: 700,
+  border: 0,
+  borderRadius: "3em",
+  cursor: "pointer",
+  display: "inline-block",
+  lineHeight: 1,
 });
 
-const subtitleStyle = css`
-  box-sizing: border-box;
-  width: 100px;
-  height: 60px;
-`;
-import "./button.css";
+const buttonStyleVariant = {
+  primary: css`
+    color: white;
+    background-color: #1ea7fd;
+  `,
+  secondary: css`
+    color: #333;
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  `,
+};
+const buttonStyleSize = {
+  small: css`
+    font-size: 12px;
+    padding: 10px 16px;
+  `,
+  medium: css`
+    font-size: 14px;
+    padding: 11px 20px;
+  `,
+  large: css`
+    font-size: 16px;
+    padding: 12px 24px;
+  `,
+};
 
 interface ButtonProps {
   /**
@@ -47,13 +70,19 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  console.log("SIZE PROP FROM BUTTON", size);
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
-  const padding = size === "small" ? "10px" : "30px";
+  // console.log("SIZE PROP FROM BUTTON", size);
+  const buttonStyle = [
+    buttonStyles,
+    primary ? buttonStyleVariant["primary"] : buttonStyleVariant["secondary"],
+    buttonStyleSize[size],
+    backgroundColor
+      ? css`
+          background-color: ${backgroundColor};
+        `
+      : undefined,
+  ];
   return (
-    <button css={{ color: "blue", padding: padding }} type="button" {...props}>
+    <button css={buttonStyle} type="button" {...props}>
       {label}
     </button>
   );
